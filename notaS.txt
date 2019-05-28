@@ -82,3 +82,16 @@ $ node src/server.js
 # criando migrations
 $ yarn sequelize migration:create --name=create-users
 
+# Install nodemon
+$ yarn add nodemon -D
+
+# install test tool
+$ yarn add jest -D
+# initialize the jest
+#     config:  - Would you like to use Jest when running "test" script in "package.json" === yes
+               - Choose the test environment that will be used for testing: node
+               - Do you want Jest to add coverate reports? === no
+               - Automatically clear mock calls and instances between every test? === Yes
+$ yarn jest --init
+
+

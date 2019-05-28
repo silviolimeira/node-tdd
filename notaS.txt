@@ -1,0 +1,17 @@
+Testes no NodeJS applicando TDD com Jest - Diego Fernandes
+https://www.youtube.com/watch?v=2G_mWfG0DZE&t=51s
+
+# How do you format code on save in VS code
+    https://stackoverflow.com/questions/39494277/how-do-you-format-code-on-save-in-vs-code
+    Add the following to your settings.json file:
+    "editor.formatOnSave": true
+
+# Starting project
+$ yarn init -y
+
+# install express
+$ yarn add express
+
+
+
+$ yarn sequelize db:migrate

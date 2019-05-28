@@ -6,6 +6,22 @@ https://www.youtube.com/watch?v=2G_mWfG0DZE&t=51s
     Add the following to your settings.json file:
     "editor.formatOnSave": true
 
+# postgres
+
+    Setup PostgreSQL on Windows with Docker:
+      https://elanderson.net/2018/02/setup-postgresql-on-windows-with-docker/
+    
+    To verify all was working I downloaded pgAdmin from here:
+      https://www.pgadmin.org/download/
+      
+      Docker:
+        https://www.pgadmin.org/download/pgadmin-4-windows/
+
+
+    Dockerized Postgresql Development Environment:
+    https://ryaneschinger.com/blog/dockerized-postgresql-development-environment/
+
+
 # Starting project
 $ yarn init -y
 

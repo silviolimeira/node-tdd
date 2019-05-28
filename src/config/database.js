@@ -1,8 +1,8 @@
 module.exports = {
   host: '127.0.0.1',
   username: 'postgres',
-  password: 'yourPassword',
-  database: 'demo_db2',
+  password: 'postgres',
+  database: 'demo',
   dialect: 'postgres',
   operatiorsAliases: false,
   logging: false,

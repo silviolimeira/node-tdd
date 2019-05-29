@@ -1,5 +1,5 @@
-Testes no NodeJS applicando TDD com Jest - Diego Fernandes
-https://www.youtube.com/watch?v=2G_mWfG0DZE&t=51s
+Test on NodeJS with Jest and TDD
+https://www.youtube.com/watch?v=2G_mWfG0DZE&t=312s
 
 # How do you format code on save in VS code
     https://stackoverflow.com/questions/39494277/how-do-you-format-code-on-save-in-vs-code
@@ -20,6 +20,7 @@ https://www.youtube.com/watch?v=2G_mWfG0DZE&t=51s
 
     Dockerized Postgresql Development Environment:
     https://ryaneschinger.com/blog/dockerized-postgresql-development-environment/
+
 
 
 # Starting project

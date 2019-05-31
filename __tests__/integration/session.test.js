@@ -55,7 +55,7 @@ describe("Authentication", () => {
     expect(response.body).toHaveProperty("token");
   });
 
-  if ('should be able to access private routes when authenticated', async () => {
+  it('should be able to access private routes when authenticated', async () => {
     const user = await factory.create('User', {
       password: '123123'
     });
@@ -68,5 +68,12 @@ describe("Authentication", () => {
 
   });
 
+  it('should not be able to access private routes withouth jwt token', async () => {
+
+    const response = await request(app)
+      .get('/dashboard');
+
+    expect(response.status).toBe(401);
+  });
 
 });

@@ -26,7 +26,7 @@ describe("Authentication", () => {
 
   it("should autenticate with invalid credentials", async () => {
     const user = await factory.create('User', {
-      password: '123456' 
+      password: '123456'
     });
 
     const response = await request(app)
@@ -54,5 +54,18 @@ describe("Authentication", () => {
 
     expect(response.body).toHaveProperty("token");
   });
+
+  it('should be able to access private routes when authenticated', async () => {
+    const user = await factory.create("User", {
+      password: '123123'
+    });
+
+    const response = await request(app)
+      .get("/dashboard")
+      .set("Authorization", `Bearer ${user.generateToken()}`);
+
+    expect(response.status).toBe(200);
+  });
+
 
 });

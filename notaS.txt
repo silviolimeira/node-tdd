@@ -1,36 +1,85 @@
-Test on NodeJS with Jest and TDD
+Coverage Reports:
+  __tests__/coverage/lcov-report/src/index.html
+
+
+NodeJS with TDD
 https://www.youtube.com/watch?v=2G_mWfG0DZE&t=312s
 
-# How do you format code on save in VS code
-    https://stackoverflow.com/questions/39494277/how-do-you-format-code-on-save-in-vs-code
-    Add the following to your settings.json file:
-    "editor.formatOnSave": true
-
-# postgres
-
-    Setup PostgreSQL on Windows with Docker:
-      https://elanderson.net/2018/02/setup-postgresql-on-windows-with-docker/
-    
-    To verify all was working I downloaded pgAdmin from here:
-      https://www.pgadmin.org/download/
-      
-      Docker:
-        https://www.pgadmin.org/download/pgadmin-4-windows/
-
-
-    Dockerized Postgresql Development Environment:
-    https://ryaneschinger.com/blog/dockerized-postgresql-development-environment/
-
-
-
-# Starting project
+# start the application
 $ yarn init -y
 
 # install express
 $ yarn add express
 
+# need postgres up
+
+        # refs:
+        Setup PostgreSQL on Windows with Docker:
+        https://elanderson.net/2018/02/setup-postgresql-on-windows-with-docker/
+        Dockerized Postgresql Development Environment:
+        https://ryaneschinger.com/blog/dockerized-postgresql-development-environment/
+
+        # create containers for data and bd ===================================================================
+        $ docker create -v /var/lib/postgresql/data --name PostgresData alpine
+        $ docker run -p 5432:5432 --name postgres -e POSTGRES_PASSWORD=postgres -d --volumes-from PostgresData postgres
+
+$ docker exec -it postgres psql -U postgres -c "CREATE DATABASE demo;"
+        # todo fix: $ docker exec -it postgres psql -U postgres -f /script_demo1.sql
+        # =====================================================================================================
+
+
+
+        # other references
+
+            # install and execute postgres docker
+            $ docker run --name demo -e POSTGRES_PASSWORD=sicemal -d postgres
+
+            # inspect bd
+            $ docker exec -it demo psql -U postgres
+
+            postgres=# CREATE DATABASE sicemal;
+            postgres=# \c sicemal
+            sicemal=# CREATE TABLE demo_t(something int);
+            sicemal=# INSERT INTO demo_t(something) values (1);
+
+            # show tables
+            sicemal=# \dt
+
+            # show data select
+            sicemal=# select * from demo_t;
+
+            # exit
+            sicemal=# \q
+
+            # remove docker container
+            $ docker rm -f demo
+
+            # Automate - run scripts using docker cli
+            # refs: https://www.youtube.com/watch?v=A8dErdDMqb0
+
+            # first remove last container
+            $ docker rm -f demo
+
+            # start the new container
+            $  docker run --name demo -v "${PWD}"/:/opt/demo -e POSTGRES_PASSWORD=password1 -d postgres
+
+            file with script: script_demo1.sql
+            \c demo_db2
+            CREATE TABLE demo_t(something int);
+            INSERT INTO demo_t(something) VALUES (1);
+
+
+# install sequelize and pg 
+$ yarn add sequelize pg
+$ yarn add sequelize-cli -D  ## migrations
+
+$ yarn sequelize init
+
+# initial test migrations
 $ yarn sequelize db:migrate
 
-
-# run the application 
+# execute the application
 $ node src/server.js
+
+# criando migrations
+$ yarn sequelize migration:create --name=create-users

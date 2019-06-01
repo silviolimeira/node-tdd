@@ -1,3 +1,9 @@
+
+POST with token to curl request:
+curl -d '{"email":"silvio@gmail.com","password":"123123"}' -H "Request-Type: application/json" -H "Content-Type: aplication/json" -H "Accept: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTU5NDAxMDIxfQ.omCmkna4WjfqJ2fNpbJVqZhmqO82Ee5aPRLL0Yy4Yt0" http://localhost:3000/hello
+
+
+
 Executando no modo de desenvolvimento:
 
   $ yarn dev

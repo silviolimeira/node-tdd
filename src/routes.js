@@ -1,14 +1,6 @@
 const routes = require("express").Router();
 const { User } = require("./app/models");
 
-
-// // Force creating user for test
-// User.Create({
-//     name: "Silvio",
-//     email: "silvio@gmail.com",
-//     password_hash: "123123"
-// });
-
 const authMiddleware = require("./app/middleware/auth");
 
 const SessionController = require("./app/controllers/SessionController");

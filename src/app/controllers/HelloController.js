@@ -1,11 +1,11 @@
+const bcrypt = require('bcryptjs');
 const { User } = require('../models')
-
-const faker = require('faker');
-const { factory } = require('factory-girl');
 
 class HelloController {
     async hello(req, res) {
-        const user = await User.create({ name: "silvio", email: "silvio@gmail.com", password_hash: "123123" });
+        const user = await User.create({
+            name: "silvio", email: "silvio@gmail.com", password_hash: "$2a$08$NuPp4HW5lEutP9eFgJCT.e4YqgSwwdqk0zuqTUAPspzwip7rj/lYO"
+        });
 
         return res.json({
             user,

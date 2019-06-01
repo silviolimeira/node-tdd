@@ -1,0 +1,42 @@
+{
+	"info": {
+		"_postman_id": "960b9af5-274b-4e60-ab18-c7b6527f9ef1",
+		"name": "nodejs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "sessions",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTU5NDI4MTI2fQ.-m9-RydvF2AvZVGXRra51Ex-nUfM3i272sMbnhyv-hs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"silvio@gmail.com\",\n\t\"password\": \"123123\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/sessions",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

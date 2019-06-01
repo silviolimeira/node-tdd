@@ -1,3 +1,26 @@
+Executando no modo de desenvolvimento:
+
+  $ yarn dev
+
+  -     quando em desenvolvimento o projeto deve utilizar o postgres,
+    se quizermos iniciar o banco de desenvolvimento executamos:
+    $ yarn sequelize db:migrate
+    para zerar o banco devemos executamos:
+    $ yarn sequelize db:migrate:undo:all
+
+    contudo, antes devemos iniciar o postgres nesse caso no docker
+    # executando o container
+    $ docker run -p 5432:5432 --name postgres -e POSTGRES_PASSWORD=postgres -d --volumes-from PostgresData postgres
+    # criando o bd
+    $ docker exec -it postgres psql -U postgres -c "CREATE DATABASE demo;"
+   
+    # criando o volume para os dados ficarem
+    # create containers for data and bd ===================================================================
+    $ docker create -v /var/lib/postgresql/data --name PostgresData alpine
+
+
+
+
 Coverage Reports:
   __tests__/coverage/lcov-report/src/index.html
 
@@ -23,7 +46,7 @@ $ yarn add express
         $ docker create -v /var/lib/postgresql/data --name PostgresData alpine
         $ docker run -p 5432:5432 --name postgres -e POSTGRES_PASSWORD=postgres -d --volumes-from PostgresData postgres
 
-$ docker exec -it postgres psql -U postgres -c "CREATE DATABASE demo;"
+        $ docker exec -it postgres psql -U postgres -c "CREATE DATABASE demo;"
         # todo fix: $ docker exec -it postgres psql -U postgres -f /script_demo1.sql
         # =====================================================================================================
 

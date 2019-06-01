@@ -81,5 +81,10 @@ describe("Authentication", () => {
     expect(response.status).toBe(401);
   })
 
+  it("should say hello", async () => {
+    const response = await request(app)
+      .get('/hello');
+  })
+
 
 });
